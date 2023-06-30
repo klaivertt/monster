@@ -1,4 +1,5 @@
-window.requestAnimFrame = function () {
+
+  window.requestAnimFrame = function () {
   return (
     window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -147,8 +148,8 @@ window.onload = function () {
     }
   }
 
-  let maxl = 150,
-    minl = 10,
+  let maxl = 150;
+  minl = 10,
     n = 30,
     numt = 3700,
     tent = [],
@@ -325,55 +326,11 @@ function startColorChangeEffect() {
     "#FF033F","#FF0A4C","#FF117A","#FF1898","#FF20B5","#FF27D3","#FF2EF0","#FF36FE","#FFA020","#FF841F","#FF671E","#FF4B1D","#FF2F1C",
     "#FF121B","#DE131A","#BD1419","#9C1518","#7B1617","#5A1716","#391816","#206134","#3A4A4F","#52565A","#6C7C65","#85827A","#9FA07F",
     "#B9B584","#D3D389","#EDEC8E","#FFFF93","#FFF498","#FFE59D","#FFD69F","#FFC8A0","#FFBAA2","#FFABA4","#FF9DA5","#FF8FA7","#FF81A9",
-    "#FF73AA","#FF65AC","#FF57AE","#FF49AF","#FF3BAF","#FF2DAF","#FF20B0","#FF24C1","#FF28D2","#FF2CDF","#FF31EC","#FF35F9",
-    "#FF39FF",
-    "#FF54FF",
-    "#FF6FFF",
-    "#FF8BFF",
-    "#FFA7FF",
-    "#FFC2FF",
-    "#FFDEFF",
-    "#FFE2F2",
-    "#FFE6E5",
-    "#FFEBD9",
-    "#FFF0CC",
-    "#FFF4C0",
-    "#FFF9B4",
-    "#FFFDAA",
-    "#FFFF9E",
-    "#FFFF93",
-    "#CFFF77",
-    "#9FFF5B",
-    "#80FF3F",
-    "#61FF23",
-    "#43FF07",
-    "#34E406",
-    "#26C60A",
-    "#17A80F",
-    "#099A13",
-    "#008D18",
-    "#007F1C",
-    "#007120",
-    "#006424",
-    "#005728",
-    "#004B2C",
-    "#00402F",
-    "#003433",
-    "#002837",
-    "#001C3B",
-    "#00103F",
-    "#000543",
-    "#000047",
-    "#260045",
-    "#4C0043",
-    "#720041",
-    "#98003F",
-    "#BE003D",
-    "#E4003C",
-    "#FF003A",
-    "#FF003B",
-    "#FF003D",
-    "#FF003E",
+    "#FF73AA","#FF65AC","#FF57AE","#FF49AF","#FF3BAF","#FF2DAF","#FF20B0","#FF24C1","#FF28D2","#FF2CDF","#FF31EC","#FF35F9","#FF39FF","#FF54FF",
+    "#FF6FFF","#FF8BFF","#FFA7FF","#FFC2FF","#FFDEFF","#FFE2F2","#FFE6E5","#FFEBD9","#FFF0CC","#FFF4C0","#FFF9B4","#FFFDAA","#FFFF9E","#FFFF93",
+    "#CFFF77","#9FFF5B","#80FF3F","#61FF23","#43FF07","#34E406","#26C60A","#17A80F","#099A13","#008D18","#007F1C","#007120","#006424","#005728",
+    "#004B2C","#00402F","#003433","#002837","#001C3B","#00103F","#000543","#000047","#260045","#4C0043","#720041","#98003F",
+    "#BE003D","#E4003C","#FF003A","#FF003B","#FF003D","#FF003E",
   ];
   const duration = 200; // Durée entre chaque couleur en millisecondes
   const totalColors = colors.length;
@@ -491,39 +448,3 @@ function changeRGBColors() {
 
     return brightness;
   }
-
-  const lengthSlider = document.getElementById("lengthSlider");
-  const lengthValue = document.getElementById("lengthValue");
-
-  const widthSlider = document.getElementById("widthSlider");
-const widthValue = document.getElementById("widthValue");
-
-const nodeSlider = document.getElementById("nodeSlider");
-const nodeValue = document.getElementById("nodeValue");
-
-const attachmentSlider = document.getElementById("attachmentSlider");
-const attachmentValue = document.getElementById("attachmentValue");
-
-lengthSlider.addEventListener("input", () => {
-  const maxLength = lengthSlider.value || 150;
-  lengthValue.textContent = maxLength;
-  // Utilisez maxLength comme valeur maximale
-});
-
-widthSlider.addEventListener("input", () => {
-  const minWidth = widthSlider.value;
-  widthValue.textContent = minWidth;
-  // Utilisez minWidth comme valeur minimale
-});
-
-nodeSlider.addEventListener("input", () => {
-  const numNodes = nodeSlider.value;
-  nodeValue.textContent = numNodes;
-  // Utilisez numNodes comme nombre de nœuds
-});
-
-attachmentSlider.addEventListener("input", () => {
-  const attachmentVal = attachmentSlider.value;
-  attachmentValue.textContent = attachmentVal;
-  // Utilisez attachmentVal comme valeur d'accroche
-});
