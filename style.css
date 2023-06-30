@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    background: black;
+    background: rgb(16, 16, 16);
   }
   
   #canvas {

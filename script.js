@@ -1,5 +1,4 @@
-
-  window.requestAnimFrame = function () {
+window.requestAnimFrame = function () {
   return (
     window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
