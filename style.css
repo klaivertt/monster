@@ -1,35 +1,35 @@
-body,
-html {
-  margin: 0px;
-  padding: 0px;
-  position: fixed;
-  background: black;
-}
-
-#canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#colorButton {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-  border: 2px solid white;
-  border-radius: 10px;
-  background: linear-gradient(to bottom, #555555, #222222);
-  color: white;
-  padding: 5px 10px;
-}
-
-#rgbCheckbox {
+body, html {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background: black;
+  }
+  
+  #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ajout de la propriété z-index pour positionner le canvas en arrière-plan */
+  }
+  
+  #colorButton {
+    position: absolute;
+    top: 10px;
+    left: 255px;
+    z-index: 1;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #555555, #222222);
+    color: white;
+    padding: 5px 10px;
+  }
+  
+  #rgbCheckbox {
     position: absolute;
     top: 60px;
-    left: 10px;
+    left: 255px;
     z-index: 1;
-    border: none;
+    border: 2px solid white;
     background: linear-gradient(to bottom, #555555, #222222);
     color: white;
     padding: 5px 10px;
@@ -41,8 +41,10 @@ html {
   }
   
   #rgbCheckbox::before {
-    content: "RGB";
-    display: inline-block;
+    content: "RGB ";
+    display: flex;
+    align-items: center;
+    justify-content: center;
     vertical-align: middle;
     margin-right: 5px;
   }
@@ -71,3 +73,73 @@ html {
   #rgbCheckbox:active {
     background: linear-gradient(to bottom, #444444, #111111);
   }
+  
+  .tooltip {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: #f00;
+    color: #fff;
+    padding: 5px;
+    display: none;
+  }
+  
+  label {
+    color: white;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px;
+    height: 5px;
+    background: #555555;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background: #ffffff;
+  }
+  
+  input[type="range"]::-moz-range-thumb:hover {
+    background: #ffffff;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:active {
+    background: #ffffff;
+  }
+  
+  input[type="range"]::-moz-range-thumb:active {
+    background: #ffffff;
+  }
+  
+  #lengthValue,
+  #widthValue,
+  #nodeValue,
+  #attachmentValue {
+    color: white;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  

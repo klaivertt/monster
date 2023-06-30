@@ -374,121 +374,8 @@ function startColorChangeEffect() {
     "#FF003B",
     "#FF003D",
     "#FF003E",
-    "#FF0040",
-    "#FF0041",
-    "#FF0043",
-    "#FF0044",
-    "#FF0046",
-    "#FF0048",
-    "#FF0049",
-    "#FF004B",
-    "#FF004C",
-    "#FF004E",
-    "#FF004F",
-    "#FF0051",
-    "#FF0053",
-    "#FF0054",
-    "#FF0056",
-    "#FF0057",
-    "#FF0059",
-    "#FF005A",
-    "#FF005C",
-    "#FF005E",
-    "#FF005F",
-    "#FF0061",
-    "#FF0062",
-    "#FF0064",
-    "#FF0065",
-    "#FF0067",
-    "#FF0069",
-    "#FF006A",
-    "#FF006C",
-    "#FF006D",
-    "#FF006F",
-    "#FF0071",
-    "#FF0072",
-    "#FF0074",
-    "#FF0075",
-    "#FF0077",
-    "#FF0079",
-    "#FF007A",
-    "#FF007C",
-    "#FF007D",
-    "#FF007F",
-    "#FF0081",
-    "#FF0082",
-    "#FF0084",
-    "#FF0085",
-    "#FF0087",
-    "#FF0088",
-    "#FF008A",
-    "#FF008C",
-    "#FF008D",
-    "#FF008F",
-    "#FF0090",
-    "#FF0092",
-    "#FF0093",
-    "#FF0095",
-    "#FF0097",
-    "#FF0098",
-    "#FF009A",
-    "#FF009B",
-    "#FF009D",
-    "#FF009F",
-    "#FF00A0",
-    "#FF00A2",
-    "#FF00A3",
-    "#FF00A5",
-    "#FF00A6",
-    "#FF00A8",
-    "#FF00AA",
-    "#FF00AB",
-    "#FF00AD",
-    "#FF00AE",
-    "#FF00B0",
-    "#FF00B1",
-    "#FF00B3",
-    "#FF00B4",
-    "#FF00B6",
-    "#FF00B8",
-    "#FF00B9",
-    "#FF00BB",
-    "#FF00BC",
-    "#FF00BE",
-    "#FF00C0",
-    "#FF00C1",
-    "#FF00C3",
-    "#FF00C4",
-    "#FF00C6",
-    "#FF00C7",
-    "#FF00C9",
-    "#FF00CB",
-    "#FF00CC",
-    "#FF00CE",
-    "#FF00CF",
-    "#FF00D1",
-    "#FF00D2",
-    "#FF00D4",
-    "#FF00D5",
-    "#FF00D7",
-    "#FF00D9",
-    "#FF00DA",
-    "#FF00DC",
-    "#FF00DD",
-    "#FF00DF",
-    "#FF00E1",
-    "#FF00E2",
-    "#FF00E4",
-    "#FF00E5",
-    "#FF00E7",
-    "#FF00E8",
-    "#FF00EA",
-    "#FF00EC",
-    "#FF00ED",
-    "#FF00EF","#FF00F0","#FF00F2","#FF00F3","#FF00F5",
   ];
-
-  const duration = 100; // Durée entre chaque couleur en millisecondes
+  const duration = 200; // Durée entre chaque couleur en millisecondes
   const totalColors = colors.length;
 
   let currentIndex = 0;
@@ -502,6 +389,14 @@ function startColorChangeEffect() {
 
   // Fonction pour changer la couleur active
   function changeColor() {
+    // Vérifier si la case à cocher est toujours cochée
+    if (!rgbCheckbox.checked) {
+      // Arrêter l'intervalle et réinitialiser l'identifiant
+      clearInterval(intervalId);
+      intervalId = null;
+      return;
+    }
+
     const activeColor = getNextColor();
 
     // Appliquer la couleur active à l'élément ou à l'effet souhaité
@@ -538,6 +433,7 @@ function startColorChangeEffect() {
   // Appeler la fonction pour la première fois sans délai initial
   changeColor();
 }
+
 
 
 }
@@ -596,3 +492,38 @@ function changeRGBColors() {
     return brightness;
   }
 
+  const lengthSlider = document.getElementById("lengthSlider");
+  const lengthValue = document.getElementById("lengthValue");
+
+  const widthSlider = document.getElementById("widthSlider");
+const widthValue = document.getElementById("widthValue");
+
+const nodeSlider = document.getElementById("nodeSlider");
+const nodeValue = document.getElementById("nodeValue");
+
+const attachmentSlider = document.getElementById("attachmentSlider");
+const attachmentValue = document.getElementById("attachmentValue");
+
+lengthSlider.addEventListener("input", () => {
+  const maxLength = lengthSlider.value || 150;
+  lengthValue.textContent = maxLength;
+  // Utilisez maxLength comme valeur maximale
+});
+
+widthSlider.addEventListener("input", () => {
+  const minWidth = widthSlider.value;
+  widthValue.textContent = minWidth;
+  // Utilisez minWidth comme valeur minimale
+});
+
+nodeSlider.addEventListener("input", () => {
+  const numNodes = nodeSlider.value;
+  nodeValue.textContent = numNodes;
+  // Utilisez numNodes comme nombre de nœuds
+});
+
+attachmentSlider.addEventListener("input", () => {
+  const attachmentVal = attachmentSlider.value;
+  attachmentValue.textContent = attachmentVal;
+  // Utilisez attachmentVal comme valeur d'accroche
+});
