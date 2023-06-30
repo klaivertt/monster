@@ -50,12 +50,11 @@
     }
 
     window.onload = function () {
-      let c = init("canvas").c,
-        canvas = init("canvas").canvas,
-        w = (canvas.width = window.innerWidth),
-        h = (canvas.height = window.innerHeight),
-        mouse = { x: false, y: false },
-        last_mouse = {};
+  let { c, canvas } = init("canvas");
+  let w = (canvas.width = window.innerWidth);
+  let h = (canvas.height = window.innerHeight);
+  let mouse = { x: false, y: false };
+  let last_mouse = {};
 
       function dist(p1x, p1y, p2x, p2y) {
         return Math.sqrt(Math.pow(p2x - p1x, 2) + Math.pow(p2y - p1y, 2));
@@ -173,10 +172,10 @@
         }
       }
 
-      let maxl = 300,
-        minl = 50,
+      let maxl = 150,
+        minl = 10,
         n = 30,
-        numt = 500,
+        numt = 3700,
         tent = [],
         clicked = false,
         target = { x: 0, y: 0 },
@@ -295,18 +294,21 @@
     }
 
     function changeColors() {
-  const color = generateRandomColor();
+      const color = generateRandomColor();
 
-  for (let i = 0; i < numt; i++) {
-    tent[i].setColor(color);
-  }
+      for (let i = 0; i < numt; i++) {
+        tent[i].setColor(color);
+      }
 
-  // Mettre à jour la couleur du bouton
-  const colorButton = document.getElementById("colorButton");
-  colorButton.style.backgroundColor = color;
-}
+      // Mettre à jour la couleur du bouton
+      const colorButton = document.getElementById("colorButton");
+      colorButton.style.backgroundColor = color;
+    }
 
-const colorButton = document.getElementById("colorButton");
-colorButton.addEventListener("click", changeColors);
+    const colorButton = document.getElementById("colorButton");
+    colorButton.addEventListener("click", changeColors);
+
+    // Appel initial pour définir la couleur initiale
+    changeColors();
   </script>
 </html>
